@@ -1,4 +1,4 @@
-# Installion of ROS Noetic & ROS Foxy On Ubuntu Mate 20.04
+# Installation of ROS Noetic & ROS Foxy On Ubuntu Mate 20.04
 #### 
 ## Task Description:- Install Both ROS Noetic & ROS Foxy on Ubuntu Mate LTS 20.04 and explain all the steps taken to achieve that.
 #### 
@@ -7,6 +7,7 @@
 1. Download VirtualBox from this [link](https://www.virtualbox.org/wiki/Downloads)
 2. Download Ubuntu Mate LTS 20.04 desktop image from this [link](https://cdimage.ubuntu.com/ubuntu-mate/releases/20.04/release/)
 3. Create a Virtual Machine For Ubuntu Mate inside VirtualBox
+4. Install Ubuntu Mate 20.04 inside the Virtual Machine
 #### 
 ## 1. Download VirtualBox:-
 #### 
