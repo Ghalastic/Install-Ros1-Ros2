@@ -47,6 +47,57 @@ After installing and launching Ubuntu MATE 20.04 on the virtual machine, click o
 ####
 ![TERMINAL](https://github.com/user-attachments/assets/bf4598ea-e61a-450f-aa2d-ef7f834a3280)
 #### 
+### 1- Setup your sources.list:
+#### 
+Setup your computer to accept software from packages.ros.org.
 ```bash
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 ```
+####
+### 2- Set up your keys:
+#### 
+```bash
+sudo apt install curl # if you haven't already installed curl
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+```
+####
+### 3- Install:
+#### 
+- Make sure your Debian package index is up-to-date:
+#### 
+```bash
+sudo apt update
+```
+#### 
+- Pick how much of ROS you would like to install:
+Desktop-Full Install (Recommended): Everything in Desktop plus 2D/3D simulators and 2D/3D perception packages
+#### 
+```bash
+sudo apt install ros-noetic-desktop-full
+```
+### 4- Environment setup:
+####
+You must source this script in every bash terminal you use ROS in:
+####
+```bash
+source /opt/ros/noetic/setup.bash
+```
+### 5- (Recommended) Installing Dependencies for Building Packages:
+#### 
+```bash
+sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+```
+#### 
+### 6- Initialize rosdep:
+rosdep enables you to easily install system dependencies for source you want to compile and is required to run some core components in ROS. If you have not yet installed rosdep, do so as follows: 
+#### 
+```bash
+sudo apt install python3-rosdep
+```
+####
+- With the following, you can initialize rosdep:
+```bash
+sudo rosdep init
+rosdep update
+```
+
