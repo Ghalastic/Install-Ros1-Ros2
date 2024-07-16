@@ -48,8 +48,8 @@ After installing and launching Ubuntu MATE 20.04 on the virtual machine, click o
 ![TERMINAL](https://github.com/user-attachments/assets/bf4598ea-e61a-450f-aa2d-ef7f834a3280)
 #### 
 ### 1- Setup your sources.list:
+Setup your computer to accept software from packages.ros.org:
 #### 
-Setup your computer to accept software from packages.ros.org.
 ```bash
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 ```
@@ -75,6 +75,7 @@ Desktop-Full Install (Recommended): Everything in Desktop plus 2D/3D simulators 
 ```bash
 sudo apt install ros-noetic-desktop-full
 ```
+#### 
 ### 4- Environment setup:
 ####
 You must source this script in every bash terminal you use ROS in:
@@ -82,6 +83,7 @@ You must source this script in every bash terminal you use ROS in:
 ```bash
 source /opt/ros/noetic/setup.bash
 ```
+#### 
 ### 5- (Recommended) Installing Dependencies for Building Packages:
 #### 
 ```bash
@@ -96,6 +98,7 @@ sudo apt install python3-rosdep
 ```
 ####
 - With the following, you can initialize rosdep:
+#### 
 ```bash
 sudo rosdep init
 rosdep update
@@ -109,4 +112,89 @@ roscore
 ```
 #### 
 ![roscore](https://github.com/user-attachments/assets/f97e94eb-e5f5-4480-988a-693d79ae3fd4)
+#### 
+## Installing ROS Foxy:- 
+#### 
+### 1- Set Locale:
+Make sure you have a locale which supports UTF-8:
+#### 
+```bash
+locale  # check for UTF-8
+
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+locale  # verify settings
+```
+#### 
+### 2- Setup Sources:
+You will need to add the ROS 2 apt repository to your system.
+- First ensure that the Ubuntu Universe repository is enabled:
+####
+```bash
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+```
+#### 
+- Now add the ROS 2 GPG key with apt:
+#### 
+```bash
+sudo apt update && sudo apt install curl -y
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+```
+#### 
+- Then add the repository to your sources list:
+#### 
+```bash
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+```
+#### 
+### 3- Install ROS 2 packages: 
+- Update your apt repository caches after setting up the repositories:
+#### 
+```bash
+sudo apt update
+```
+#### 
+- It is always recommended that you ensure your system is up to date before installing new packages:
+#### 
+```bash
+sudo apt upgrade
+```
+#### 
+- Desktop Install (Recommended): ROS, RViz, demos, tutorials:
+#### 
+```bash
+sudo apt install ros-foxy-desktop python3-argcomplete
+```
+#### 
+### 4- Environment setup:
+Set up your environment by sourcing the following file:
+#### 
+```bash
+# Replace ".bash" with your shell if you're not using bash
+# Possible values are: setup.bash, setup.sh, setup.zsh
+source /opt/ros/foxy/setup.bash
+```
+#### 
+### 5- Example Code:
+- In one terminal, source the setup file and then run a C++ talker:
+#### 
+```bash
+source /opt/ros/foxy/setup.bash
+ros2 run demo_nodes_cpp talker
+```
+#### 
+- In another terminal source the setup file and then run a Python listener:
+#### 
+```bash
+source /opt/ros/foxy/setup.bash
+ros2 run demo_nodes_py listener
+```
+#### 
+#### You should see the talker saying that it’s Publishing messages and the listener saying I heard those messages. This verifies both the C++ and Python APIs are working properly.
+#### 
+![TALKER-LISTENER](https://github.com/user-attachments/assets/604b7819-e9fc-491c-9d21-5909c29a671c)
 #### 
