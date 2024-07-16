@@ -41,4 +41,12 @@ Install Both ROS Noetic & ROS Foxy on Ubuntu Mate 20.04 and explain all the step
 - After doing all the previous steps, click on start at the top to begin installing and launching Ubuntu Mate 20.04 into the newly created virtual machine.
 #### 
 ![‏‏لقطة الشاشة (2031)](https://github.com/user-attachments/assets/672d4687-169b-4806-931d-ab8c0a91956d)
+####
+## Installing ROS Noetic:-
+After installing and launching Ubuntu MATE 20.04 on the virtual machine, click on the menu at the top left and go to "System Tools" and click on "MATE terminal" which should look like this.
+####
+![TERMINAL](https://github.com/user-attachments/assets/bf4598ea-e61a-450f-aa2d-ef7f834a3280)
 #### 
+```bash
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+```
