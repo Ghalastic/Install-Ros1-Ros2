@@ -100,4 +100,13 @@ sudo apt install python3-rosdep
 sudo rosdep init
 rosdep update
 ```
-
+#### 
+### To start the ROS (master node):
+Source the script then run the following command in the MATE terminal:
+#### 
+```bash
+roscore
+```
+#### 
+![roscore](https://github.com/user-attachments/assets/f97e94eb-e5f5-4480-988a-693d79ae3fd4)
+#### 
